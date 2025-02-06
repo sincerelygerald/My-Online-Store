@@ -1,111 +1,137 @@
-/* General body styles */
+/* Custom Variables */
+:root {
+    --primary-color: #3B3B3B; /* Dark Gray - Vintage Feel */
+    --secondary-color: #E5D4C3; /* Beige - Neutral Background */
+    --text-color: #2F2F2F; /* Deep Charcoal for Readability */
+    --accent-color: #A67C52; /* Warm Rustic Brown */
+    --font-family: 'Courier New', monospace;
+}
+
+/* General Styling */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: khaki;
+    background-color: var(--secondary-color);
+    font-family: var(--font-family);
+    color: var(--text-color);
     margin: 0;
     padding: 0;
 }
 
-h1, h2 {
-    color: #4B0082; /* Indigo color */
-    font-weight: bold;
-}
-
-p {
-    line-height: 1.6;
-    font-size: 1.1em;
-}
-
-/* Header and navigation styles */
 header {
-    background-color: #333;
-    color: white;
-    padding: 20px 0;
+    background-color: var(--primary-color);
+    padding: 20px;
     text-align: center;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 2px;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
-    margin: 0;
+    text-align: center;
 }
 
 nav ul li {
     display: inline;
-    margin-right: 20px;
+    margin: 0 15px;
 }
 
 nav ul li a {
-    color: white;
     text-decoration: none;
-    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--accent-color);
+    padding: 10px;
+    transition: color 0.3s ease-in-out;
 }
 
 nav ul li a:hover {
-    text-decoration: underline;
+    color: white;
+    background-color: var(--accent-color);
+    padding: 5px 10px;
+    border-radius: 5px;
 }
 
-/* Article and section styles */
-main {
-    margin: 20px;
-}
-
-article {
-    margin-bottom: 40px;
-    padding: 20px;
-    border-radius: 8px;
-    background-color: #fff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-article h2 {
-    text-align: center;
-    font-size: 1.6em;
-    color: #4B0082;
-}
-
-section {
-    margin-bottom: 30px;
-}
-
-/* Image styles */
+/* Responsive Card Design */
 figure {
     display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 figure img {
-    border-radius: 8px;
-    max-height: 200px;
-    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
 }
 
-/* Footer styles */
+figure img:hover {
+    transform: scale(1.05);
+    filter: sepia(20%);
+}
+
+/* Pseudo-Elements & Pseudo-Classes */
+h2::before {
+    content: "🛍️ ";
+    color: var(--accent-color);
+}
+
+h2::after {
+    content: " 🏷️";
+    color: var(--accent-color);
+}
+
 footer {
-    background-color: #333;
+    background-color: var(--primary-color);
     color: white;
-    padding: 20px 0;
+    padding: 10px;
     text-align: center;
 }
 
 footer a {
     color: white;
     text-decoration: none;
-    font-size: 1.2em;
+    font-weight: bold;
 }
 
 footer a:hover {
     text-decoration: underline;
 }
 
-footer p {
-    font-size: 1em;
-    font-weight: normal;
+@media (max-width: 768px) {
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    figure {
+        flex-direction: column;
+    }
+
+    figure img {
+        width: 80%;
+        height: auto;
+    }
 }
 
-/* Styling for the horizontal line */
-hr {
-    border: 1px solid #ddd;
-    margin: 20px 0;
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
 }
